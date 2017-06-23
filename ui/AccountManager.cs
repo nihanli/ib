@@ -231,7 +231,7 @@ namespace IBSampleApp.ui
             {
                 if (ValidateOrder(item))
                 {
-                    var order = new Order() { Account = item.Account, Action = "SELL", OrderType = "MKT", TotalQuantity = item.Quantity };
+                    var order = new Order() { Account = item.Account, Action = "SELL", OrderType = "MKT", TotalQuantity = item.Quantity, Tif = "DAY" };
                     order.Conditions.AddRange(OrderConditions(item));
                     orderManager.PlaceOrder(contracts[item.Symbol], order);
                 }

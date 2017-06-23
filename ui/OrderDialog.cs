@@ -245,16 +245,9 @@ namespace IBSampleApp
 
         private void FillConditions(Order order)
         {
-            //order.Conditions = orderBindingSource.DataSource as List<OrderCondition>;
-            //order.ConditionsIgnoreRth = ignoreRth.Checked;
-            //order.ConditionsCancelOrder = cancelOrder.SelectedIndex == 1;
-            TimeCondition c1 = (TimeCondition)OrderCondition.Create(OrderConditionType.Time);
-            c1.IsMore = true;
-            c1.Time = "20170619 12:58:17";
-            c1.IsConjunctionConnection = true;
-
-            
-            order.Conditions.Add(c1);
+            order.Conditions = orderBindingSource.DataSource as List<OrderCondition>;
+            order.ConditionsIgnoreRth = ignoreRth.Checked;
+            order.ConditionsCancelOrder = cancelOrder.SelectedIndex == 1;
         }
 
         private void FillAdjustedStops(Order order)
