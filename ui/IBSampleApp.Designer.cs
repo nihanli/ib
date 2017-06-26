@@ -232,6 +232,7 @@ namespace IBSampleApp
             this.accUpdatesSubscribe = new System.Windows.Forms.Button();
             this.lastUpdatedLabel = new System.Windows.Forms.Label();
             this.positionsTab = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.positionRequest = new System.Windows.Forms.Button();
             this.positionsGrid = new System.Windows.Forms.DataGridView();
@@ -442,7 +443,6 @@ namespace IBSampleApp
             this.informationTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.ib_banner = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.marketDataTab.SuspendLayout();
             this.marketData_MDT.SuspendLayout();
@@ -2476,6 +2476,16 @@ namespace IBSampleApp
             this.positionsTab.TabIndex = 2;
             this.positionsTab.Text = "Positions (all accounts)";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(508, 35);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(97, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Contract Lookup";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.contractLookup_Click);
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(508, 64);
@@ -3996,6 +4006,7 @@ namespace IBSampleApp
             this.host_CT.Name = "host_CT";
             this.host_CT.Size = new System.Drawing.Size(83, 20);
             this.host_CT.TabIndex = 1;
+            this.host_CT.Text = "127.0.0.1";
             this.informationTooltip.SetToolTip(this.host_CT, "TWS host\'s IP address (leave blank if TWS is running on the same machine).");
             // 
             // comboTab
@@ -4509,16 +4520,6 @@ namespace IBSampleApp
             this.label7.TabIndex = 10;
             this.label7.Text = "Live Trading ports: TWS: 7496; IB Gateway: 4001. Simulated Trading ports for new " +
     "installations of version 954.1 or newer:  TWS: 7497; IB Gateway: 4002";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(508, 35);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Contract Lookup";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.contractLookup_Click);
             // 
             // IBSampleAppDialog
             // 

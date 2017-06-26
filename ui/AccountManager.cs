@@ -147,7 +147,7 @@ namespace IBSampleApp.ui
         {
             var orders = new List<OrderItem>();
 
-            var file = new System.IO.StreamReader("stops.txt");
+            var file = new System.IO.StreamReader("C:\\Users\\Hanli\\Desktop\\trading\\stops.txt");
             string line;
             char[] delimiterChars = { ' ', ',','\t' };
             while ((line = file.ReadLine()) != null)
