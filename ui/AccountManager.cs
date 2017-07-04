@@ -30,6 +30,7 @@ namespace IBSampleApp.ui
         private DataGridView positionsGrid;
         private Dictionary<string, PositionMessage> positions;
         private Dictionary<string, Contract> contracts;
+        private List<string> shortTradingDays;
         private OrderManager orderManager;
 
         private bool accountSummaryRequestActive = false;
@@ -160,6 +161,20 @@ namespace IBSampleApp.ui
             return orders;
         }
 
+        private List<string> RetrieveShortTradingDays()
+        {
+            if (shortTradingDays != null) return shortTradingDays;
+            shortTradingDays = new List<string>();
+            var file = new System.IO.StreamReader("C:\\Users\\Hanli\\Desktop\\trading\\short_days.txt");
+            string line;
+            while((line = file.ReadLine()) != null)
+            {                
+                shortTradingDays.Add(line.Trim());
+            }
+
+            return shortTradingDays;
+        }
+
         private Boolean ValidateOrder(OrderItem item)
         {
             var res = false;
@@ -200,6 +215,8 @@ namespace IBSampleApp.ui
             var now = DateTime.Now;
             var marketClose = new DateTime(now.Year, now.Month, now.Day, 13, 0, 1);
 
+            var shortTradingDays = RetrieveShortTradingDays();
+
             string dateStr = "";
             if(now < now.AddDays(1).Date && now > marketClose)
             {
@@ -209,7 +226,13 @@ namespace IBSampleApp.ui
                 dateStr = now.ToString("yyyyMMdd");
             }
 
-            c1.Time = dateStr + " 12:58:17";
+            string timeStr = "12:58:17";
+            if(shortTradingDays.Contains(dateStr))
+            {
+                timeStr = "09:58:17";
+            }
+
+            c1.Time = dateStr + " " + timeStr;
             c1.IsConjunctionConnection = true;
             conditions.Add(c1);
 
